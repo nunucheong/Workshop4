@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.user.myapplication.MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add new student"
+        android:textSize="20dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:id="@+id/screenName" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/screenName"
+        android:padding="5dp"
+        android:layout_margin="5dp"
+        android:hint="Name"
+        android:background="#a5a5a5"
+        android:id="@+id/nameField"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nameField"
+        android:padding="5dp"
+        android:layout_margin="5dp"
+        android:hint="Phone Number"
+        android:background="#a5a5a5"
+        android:id="@+id/phoneField"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/phoneField"
+        android:layout_margin="5dp"
+        android:padding="5dp"
+        android:hint="Email"
+        android:background="#a5a5a5"
+        android:id="@+id/emailField"
+        android:inputType="textWebEmailAddress" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/emailField"
+        android:text="Add"
+        android:id="@+id/this_btn"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="List of Students"
+        android:textSize="20dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_below="@+id/this_btn"
+        android:id="@+id/listName" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/listName"
+        android:id="@+id/student_list">
+    </ListView>
+
+</RelativeLayout>
