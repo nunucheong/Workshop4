@@ -70,62 +70,16 @@ public class SQLiteHandler extends SQLiteOpenHelper{
 
     //method to add new student details into the student table
     public void addStudent(String name, String phone, String email){
-        SQLiteDatabase db = this.getWritableDatabase();
-
-        ContentValues values = new ContentValues();
-        values.put(STUDENT_NAME, name);
-        values.put(STUDENT_PHONE, phone);
-        values.put(STUDENT_EMAIL, email);
-
-        //insert value into db
-        Long id = db.insert(STUDENT_TABLE, null, values);
-        //close database connection
-        db.close();
-
-        Log.d(TAG, "New Student has been added " + id);
+        
     }
 
     //method that returns student information given the student name in a String Key value pair
     public HashMap<String,String> getStudent(String name){
-        //instantiate new HashMap Object
-        HashMap<String, String> student = new HashMap<>();
-        //SQL statement to select student information based on name passed from argument
-        String SELECT_STUDENT = "SELECT * FROM " + STUDENT_TABLE + " WHERE " + STUDENT_NAME + " = '" + name + "'";
-
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery(SELECT_STUDENT, null);
-        cursor.moveToFirst(); //move to first row
-        if(cursor.getCount() > 0){
-            student.put(STUDENT_NAME, cursor.getString(0));
-            student.put(STUDENT_PHONE, cursor.getString(1));
-            student.put(STUDENT_EMAIL, cursor.getString(2));
-        }
-        cursor.close();
-        db.close();
-
-        Log.d(TAG, "Fetched from " + STUDENT_TABLE + " " + student.toString());
-
-        return student;
+        
     }
 
     //method that return a String array of all the student names in student table
     public String[] getStudentNameList(){
-        String SELECT_STUDENT_NAME_LIST = "SELECT " + STUDENT_NAME + " FROM " + STUDENT_TABLE;
-
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery(SELECT_STUDENT_NAME_LIST, null);
-        cursor.moveToFirst();
-        int numStu = cursor.getCount();
-        String[] nameList = new String[numStu];
-        for(int i = 0; cursor.getPosition()< numStu; i++){
-            nameList[i] = cursor.getString(0);
-            cursor.moveToNext();
-        }
-        cursor.close();
-        db.close();
-
-        Log.d(TAG, "Retrieved student name list");
-
-        return nameList;
+        
     }
 }
