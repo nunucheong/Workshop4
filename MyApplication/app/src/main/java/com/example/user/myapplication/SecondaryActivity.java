@@ -25,16 +25,15 @@ public class SecondaryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_secondary);
         db = new SQLiteHandler(this);
 
-        //Do some Bundle here
+        Bundle extras = getIntent().getExtras();
+        if(extras != null){
+            name = extras.getString("studentName");
+        }
 
-        //Do some Bundle ends
-
-        //Retrieve Details with name here
-
-
-
-
-        //Retrieve Details ends here
+        studentDetails = db.getStudent(name);
+        name = studentDetails.get("stu_name");
+        phone = studentDetails.get("stu_phone");
+        email = studentDetails.get("stu_email");
 
         displayName = (TextView) findViewById(R.id.student_name);
         displayName.setText(name);

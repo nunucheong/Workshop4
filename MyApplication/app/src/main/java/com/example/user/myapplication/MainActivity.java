@@ -46,23 +46,18 @@ public class MainActivity extends AppCompatActivity {
         studentInList = (TextView) findViewById(R.id.student_in_list);
         studentList = db.getStudentNameList();
 
-        //Set adapter to ListViewHere
-
-
-        //Set adapter ends
+        //write something about List View
 
         datButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                //do some Updating here
+                db.addStudent(nameField.getText().toString(), phoneField.getText().toString(), emailField.getText().toString());
+                adapter = new ArrayAdapter<String>(context, R.layout.student_listview, db.getStudentNameList());
+                adapter.notifyDataSetChanged();
+                nameList.setAdapter(adapter);
             }
         });
 
-        nameList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                //do some Intent here
-            }
-        });
+        //write something about action onClick listView
     }
 }
